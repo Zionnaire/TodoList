@@ -27,7 +27,6 @@ let todos = [
       <i class="fa fa-pencil-square" aria-hidden="true"></i> 
       <i onclick={delItem(1)}  class="fa fa-trash" aria-hidden="false"></i>`;
     console.log(todos[i].id);
-    // console.log(todos)
     ul.appendChild(li);
     myTodos.appendChild(ul);
   }
@@ -43,7 +42,8 @@ let todos = [
       arr.push(newItem);
       let li = document.createElement("li");
       li.innerHTML = `
-      ${char}   
+      ${newItem.name}
+      ${newItem.id}
       <i class="fa fa-pencil-square" aria-hidden="true"></i> 
       <i onclick={delItem(id)} class="fa fa-trash" aria-hidden="true"></i>`;
       ul.appendChild(li);
