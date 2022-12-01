@@ -24,11 +24,13 @@ let todos = [
   let ul = document.createElement("ul");
   for (let i = 0; i < todos.length; i++) {
     let li = document.createElement("li");
+    let name = todos[i].name
+    let id = todos[i].id  
     li.innerHTML = `
-      ${todos[i].name}  
-      ${todos[i].id} 
+      ${name}  
+      ${id} 
       <i class="fa fa-pencil-square" aria-hidden="true"></i> 
-      <i onclick={delItem(${todos[i].id})}  class="fa fa-trash" aria-hidden="false"></i>`;
+      <i id=todo-${id} onclick={delItem(${id})}  class="fa fa-trash" aria-hidden="false"></i>`;
     ul.appendChild(li);
     myTodos.appendChild(ul);
   }
@@ -46,11 +48,13 @@ let todos = [
       };
       arr.push(newItem);
       let li = document.createElement("li");
+      let name = newItem.name
+      let id = newItem.id
       li.innerHTML = `
-      ${newItem.name}
-      ${newItem.id}
+      ${name}
+      ${id}
       <i class="fa fa-pencil-square" aria-hidden="true"></i> 
-      <i onclick={delItem(${newItem.id})} class="fa fa-trash" aria-hidden="true"></i>`;
+      <i id=todo-${id} onclick={delItem(${id})} class="fa fa-trash" aria-hidden="true"></i>`;
       ul.appendChild(li);
   }
   
@@ -59,13 +63,15 @@ let todos = [
     event.preventDefault();
     AddToList(todos);
   });
-  // let id = event.target.dataset.index;
-  // console.log(this)
+  
   const delItem = (id) => {
+
+    //Find the item and remove from the todos  list
    let index = todos.findIndex(todo =>todo.id == id)
    todos.splice(index,1)
-    // console.log(id)
-    // return index;
+  
+   // Add function to remove item from page
+    
   };
   
   // const newLocal = document.querySelectorAll('.fa-trash');
