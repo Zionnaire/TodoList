@@ -38,6 +38,7 @@ let todos = [
   function AddToList(arr) {
       let inputElement = document.querySelector("Input");
       let char = inputElement.value
+      if(!char) return // Does not add an item if the input field is blank
       
 
       // Using the array length to create id would not work well with delete because what happens when we delete item 4 then add a new item. Now two items would have id of 5
