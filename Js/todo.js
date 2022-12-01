@@ -36,16 +36,20 @@ let todos = [
   }
   
   function AddToList(arr) {
-      let char = document.querySelector("Input").value;
+      let inputElement = document.querySelector("Input");
+      let char = inputElement.value
+      
 
-      // The method of id creation would not work well with delete because what happens when we delete item 4 then add a new item. Now two items would have id of 5
+      // Using the array length to create id would not work well with delete because what happens when we delete item 4 then add a new item. Now two items would have id of 5
       // let entry = arr[arr.length - 1];
       // let newItemId = entry.id;
       
+      // Creates a new id using our universal id (see line 1)
       let newItem = {
           id: universalId++,
           name: char,
       };
+
       arr.push(newItem);
       let li = document.createElement("li");
       let name = newItem.name
@@ -56,6 +60,7 @@ let todos = [
       <i class="fa fa-pencil-square" aria-hidden="true"></i> 
       <i id=todo-${id} onclick={delItem(${id})} class="fa fa-trash" aria-hidden="true"></i>`;
       ul.appendChild(li);
+      inputElement.value = ''
   }
   
   let addBtn = document.querySelector("button");
