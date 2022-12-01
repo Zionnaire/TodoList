@@ -1,18 +1,21 @@
+// Create universal Id to make the item's id unique no matter what is deleted or added
+let universalId = 1
+
 let todos = [
     {
-      id: 1,
+      id: universalId++,
       name: "Go Shopping",
     },
     {
-      id: 2,
+      id: universalId++,
       name: "Eat Breakfast",
     },
     {
-      id: 3,
+      id: universalId++,
       name: "Bake Bread",
     },
     {
-      id: 4,
+      id: universalId++,
       name: "Cook beans",
     },
   ];
@@ -33,10 +36,13 @@ let todos = [
   
   function AddToList(arr) {
       let char = document.querySelector("Input").value;
-      let entry = arr[arr.length - 1];
-      let newItemId = entry.id;
+
+      // The method of id creation would not work well with delete because what happens when we delete item 4 then add a new item. Now two items would have id of 5
+      // let entry = arr[arr.length - 1];
+      // let newItemId = entry.id;
+      
       let newItem = {
-          id: newItemId + 1,
+          id: universalId++,
           name: char,
       };
       arr.push(newItem);
@@ -56,13 +62,11 @@ let todos = [
   });
   // let id = event.target.dataset.index;
   // console.log(this)
-  const delItem = (id, todos) => {
-    console.log(todos);
-    // let index = todos.filter(todo => todo.id !== id)
-    // console.log(index);
-  
-    // let index = todos.findIndex(todo =>todo.id == id)
-    // todos.splice(index,1)
+  const delItem = (id) => {
+    console.log(id);
+   let index = todos.findIndex(todo =>todo.id == id)
+   console.log(index)
+   // todos.splice(index,1)
     // console.log(todos)
     // console.log(id)
     // return index;
