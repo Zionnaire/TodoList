@@ -66,26 +66,17 @@ let todos = [
   
   const delItem = (id) => {
 
-    //Find the item and remove from the todos  list
+    /* Find the item and remove from the todos list */
    let index = todos.findIndex(todo =>todo.id == id)
    todos.splice(index,1)
   
-   // Add function to remove item from page
-    
-  };
-  
-  // const newLocal = document.querySelectorAll('.fa-trash');
-  // console.log(newLocal)
-  // let deletebtn = newLocal;
-  
-  // deletebtn.forEach(btn => btn.addEventListener('click', (event) =>{
-  //     event.preventDefault();
-  //      id = this.dataset.id
-  //     delItem(id, todos)
-  // }))
-  // deletebtn.addEventListener('click', (event) =>{
-  //     event.preventDefault();
-  //     delItem(todos.id, todos)
-  //     // console.log(todos)
-  
-  // })
+   /* Add function to remove item from page */
+
+    let deleteBtnClicked = document.querySelector(`#todo-${id}`)
+    let listItem = deleteBtnClicked.parentElement // Get the list item with the particular delete button
+    let entireList = listItem.parentElement // Get the unordered ist
+    entireList.removeChild(listItem) // Remove the particular item from the page
+
+    console.log(todos) // To confirm the item is removed from the list
+
+    };
