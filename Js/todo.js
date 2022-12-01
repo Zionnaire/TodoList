@@ -25,7 +25,7 @@ let todos = [
       ${todos[i].name}  
       ${todos[i].id} 
       <i class="fa fa-pencil-square" aria-hidden="true"></i> 
-      <i onclick={delItem(1)}  class="fa fa-trash" aria-hidden="false"></i>`;
+      <i onclick={delItem(${todos[i].id})}  class="fa fa-trash" aria-hidden="false"></i>`;
     console.log(todos[i].id);
     ul.appendChild(li);
     myTodos.appendChild(ul);
@@ -45,7 +45,7 @@ let todos = [
       ${newItem.name}
       ${newItem.id}
       <i class="fa fa-pencil-square" aria-hidden="true"></i> 
-      <i onclick={delItem(id)} class="fa fa-trash" aria-hidden="true"></i>`;
+      <i onclick={delItem(${newItem.id})} class="fa fa-trash" aria-hidden="true"></i>`;
       ul.appendChild(li);
   }
   
