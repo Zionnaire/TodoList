@@ -29,7 +29,6 @@ let todos = [
       ${todos[i].id} 
       <i class="fa fa-pencil-square" aria-hidden="true"></i> 
       <i onclick={delItem(${todos[i].id})}  class="fa fa-trash" aria-hidden="false"></i>`;
-    console.log(todos[i].id);
     ul.appendChild(li);
     myTodos.appendChild(ul);
   }
@@ -63,15 +62,11 @@ let todos = [
   // let id = event.target.dataset.index;
   // console.log(this)
   const delItem = (id) => {
-    console.log(id);
    let index = todos.findIndex(todo =>todo.id == id)
-   console.log(index)
-   // todos.splice(index,1)
-    // console.log(todos)
+   todos.splice(index,1)
     // console.log(id)
     // return index;
   };
-  delItem();
   
   // const newLocal = document.querySelectorAll('.fa-trash');
   // console.log(newLocal)
